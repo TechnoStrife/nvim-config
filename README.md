@@ -11,3 +11,5 @@
 
   Ensure that lazygit is in /usr/local/bin.
 
+6. Put [win32yank](https://github.com/equalsraf/win32yank) in PATH
+

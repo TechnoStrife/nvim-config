@@ -4,30 +4,43 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-	-- Packer can manage itself
+    -- the packer
 	use 'wbthomason/packer.nvim'
 
+    -- the theme
 	use 'navarasu/onedark.nvim'
 
+    -- file navigation
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.8',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
 	use {
-		'nvim-treesitter/nvim-treesitter',
-		run = ':TSUpdate'
-	}
-
-	use 'ThePrimeagen/harpoon'
-
-	use 'mbbill/undotree'
-
-	use {
 		"nvim-telescope/telescope-file-browser.nvim",
 		requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
 	}
 
+	use 'ThePrimeagen/harpoon'
+
+    -- edit history
+	use 'mbbill/undotree'
+    
+    -- git
+    use 'lewis6991/gitsigns.nvim'
+    --use 'tpope/vim-fugitive'
+    use {
+        "kdheepak/lazygit.nvim",
+        requires = {
+            "nvim-telescope/telescope.nvim",
+            "nvim-lua/plenary.nvim",
+        },
+        config = function()
+            require("telescope").load_extension("lazygit")
+        end,
+    }
+
+    -- syntax & analysis
 	use {
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v3.x',
@@ -46,19 +59,46 @@ return require('packer').startup(function(use)
 		'williamboman/mason.nvim',
 		'williamboman/mason-lspconfig.nvim',
 	}
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		run = ':TSUpdate'
+	}
 
-    use 'lewis6991/gitsigns.nvim'
-    -- use 'tpope/vim-fugitive'
+    -- completion framework
+    use 'hrsh7th/nvim-cmp' 
+
+    -- lsp completion source
+    use 'hrsh7th/cmp-nvim-lsp'
+
+    -- useful completion sources
+    use 'hrsh7th/cmp-nvim-lua'
+    use 'hrsh7th/cmp-nvim-lsp-signature-help'
+    use 'hrsh7th/cmp-vsnip'                             
+    use 'hrsh7th/cmp-path'                              
+    use 'hrsh7th/cmp-buffer'                            
+    use 'hrsh7th/vim-vsnip'
+
+    -- refactoring
+    use 'nvim-treesitter/nvim-treesitter-refactor'
+
+    -- QoL
+    use 'lukas-reineke/indent-blankline.nvim' -- indent guides
+    use 'windwp/nvim-autopairs' -- pair (), "", etc
+    use 'RRethy/vim-illuminate' -- highlight words -- somehow works without require
     use {
-        "kdheepak/lazygit.nvim",
-        requires = {
-            "nvim-telescope/telescope.nvim",
-            "nvim-lua/plenary.nvim",
-        },
+        'kylechui/nvim-surround',
+        tag = "*",
         config = function()
-            require("telescope").load_extension("lazygit")
-        end,
+            require('nvim-surround').setup {}
+        end
+    }
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
     }
 
-    use 'nvim-treesitter/nvim-treesitter-refactor'
+    -- language specific
+    use 'simrat39/rust-tools.nvim'
 end)
