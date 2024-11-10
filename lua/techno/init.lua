@@ -1,8 +1,6 @@
 
-require("techno/remap")
-require("techno/theme")
-require("techno/packer")
 require("techno/set")
+require("techno/remap")
 require("techno/wsl")
-require("techno/autopairs")
+-- require("techno/autopairs")
 
