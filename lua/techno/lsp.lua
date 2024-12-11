@@ -27,6 +27,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
+        map('<leader>lr', function()
+            vim.diagnostic.reset()
+            vim.cmd('LspRestart')
+        end, '[L]sp [R]estart')
+
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client.server_capabilities.documentHighlightProvider then
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
@@ -47,4 +52,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
     end,
 })
-

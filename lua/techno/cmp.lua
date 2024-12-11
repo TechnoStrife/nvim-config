@@ -8,14 +8,14 @@ local cmp = require("cmp")
 cmp.setup({
     sources = {
         { name = 'nvim_lsp',               keyword_length = 3 }, -- from language server
-        { name = 'nvim_lsp_signature_help' },      -- display function signatures with current parameter emphasized
+        { name = 'nvim_lsp_signature_help' },                    -- display function signatures with current parameter emphasized
         { name = 'nvim_lua',               keyword_length = 2 }, -- complete neovim's Lua runtime API such vim.lsp.*
         { name = "luasnip" },
         -- { name = 'vsnip', keyword_length = 2 },         -- nvim-cmp source for vim-vsnip
         { name = "path" },
         { name = 'buffer',                 keyword_length = 2 }, -- source current buffer
         { name = "lazydev",                group_index = 0 },
-        { name = 'calc' },                       -- source for math calculation
+        { name = 'calc' },                                       -- source for math calculation
     },
     mapping = cmp.mapping.preset.insert({
         ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -71,8 +71,6 @@ cmp.setup({
         fields = { "abbr", "kind", "menu" },
     },
 })
-
-cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
 
 local ls = require("luasnip")
 ls.config.set_config({

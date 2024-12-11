@@ -6,11 +6,6 @@ require("telescope").setup({
     --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
     --   },
     -- },
-    pickers = {
-        buffers = {
-            initial_mode = "normal",
-        }
-    },
     defaults = {
         layout_strategy = "horizontal",
         layout_config = {
@@ -22,6 +17,7 @@ require("telescope").setup({
             },
         },
         sorting_strategy = "ascending",
+        initial_mode = "normal",
     },
     extensions = {
         ["ui-select"] = {
