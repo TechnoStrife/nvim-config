@@ -1,6 +1,12 @@
-local builtin = require("telescope.builtin")
-
 -- vim.g.mapleader = " "
+
+-- properly indent when `i` on empty line
+vim.keymap.set('n', 'i', function()
+    return (string.match(vim.api.nvim_get_current_line(), '%g') == nil and vim.v.count == 0) and 'cc' or 'i'
+end, { expr = true, noremap = true })
+vim.keymap.set('n', 'a', function()
+    return (string.match(vim.api.nvim_get_current_line(), '%g') == nil and vim.v.count == 0) and 'cc' or 'a'
+end, { expr = true, noremap = true })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

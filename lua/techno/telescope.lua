@@ -17,7 +17,7 @@ require("telescope").setup({
             },
         },
         sorting_strategy = "ascending",
-        initial_mode = "normal",
+        -- initial_mode = "normal",
     },
     extensions = {
         ["ui-select"] = {

@@ -7,13 +7,13 @@ local cmp = require("cmp")
 
 cmp.setup({
     sources = {
-        { name = 'nvim_lsp',               keyword_length = 3 }, -- from language server
+        { name = 'nvim_lsp',               keyword_length = 2 }, -- from language server
         { name = 'nvim_lsp_signature_help' },                    -- display function signatures with current parameter emphasized
         { name = 'nvim_lua',               keyword_length = 2 }, -- complete neovim's Lua runtime API such vim.lsp.*
         { name = "luasnip" },
         -- { name = 'vsnip', keyword_length = 2 },         -- nvim-cmp source for vim-vsnip
         { name = "path" },
-        { name = 'buffer',                 keyword_length = 2 }, -- source current buffer
+        { name = 'buffer',                 keyword_length = 3 }, -- source current buffer
         { name = "lazydev",                group_index = 0 },
         { name = 'calc' },                                       -- source for math calculation
     },
@@ -29,16 +29,16 @@ cmp.setup({
             { "i", "c" }
         ),
         -- Add tab support
-        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-        ['<Tab>'] = cmp.mapping.select_next_item(),
+        -- ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+        -- ['<Tab>'] = cmp.mapping.select_next_item(),
         ['<C-S-f>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = true,
-        })
+        -- ['<CR>'] = cmp.mapping.confirm({
+        --     behavior = cmp.ConfirmBehavior.Insert,
+        --     select = true,
+        -- })
     }),
     snippet = {
         expand = function(args)

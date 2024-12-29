@@ -43,4 +43,7 @@ return {
             vim.keymap.set("n", "<leader>gdc", ":DiffviewClose<CR>", { desc = "Close DiffView" })
         end,
     },
+    {
+        'tpope/vim-fugitive',
+    },
 }
