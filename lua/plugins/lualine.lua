@@ -30,8 +30,28 @@ return {
 				},
 				sections = {
 					lualine_a = { { "mode", fmt = string.lower } },
-					lualine_b = { "branch", "diff", "diagnostics" },
-					lualine_c = { "filename", lspprogess },
+					lualine_b = {
+						{
+							"branch",
+							fmt = function(str)
+								if string.find(str, "/") then
+									return ".." .. str:sub(str:find("/[^/]*$"))
+								else
+									return str
+								end
+							end,
+						},
+						"diff",
+						"diagnostics"
+					},
+					lualine_c = {
+						{
+							"filename",
+							path = 1, -- relative path
+							file_status = true,
+						},
+						lspprogess
+					},
 					lualine_x = { "encoding", "fileformat", "filetype" },
 					lualine_y = { "harpoon2" }, -- "selectioncount" :h showcmd
 					lualine_z = { "location" },
