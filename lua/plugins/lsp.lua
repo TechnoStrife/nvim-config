@@ -1,4 +1,6 @@
 local lsp_servers = {
+    ['nil'] = {},
+    ['nixpkgs-fmt'] = {},
     gopls = {},
     lua_ls = {
         settings = {
@@ -35,6 +37,9 @@ return {
             ensure_installed = {
                 "stylua",
                 "shfmt",
+                "nil",
+                "nixpkgs-fmt",
+                "gopls",
             },
         },
     },
@@ -131,4 +136,10 @@ return {
             require('lsp_signature').setup(opts)
         end,
     },
+
+    {
+      'mrcjkb/rustaceanvim',
+      version = '^5', -- Recommended
+      lazy = false, -- This plugin is already lazy
+    }
 }

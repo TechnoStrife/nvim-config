@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
 
-        map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+        map('<C-x>', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
         map('K', vim.lsp.buf.hover, 'Hover Documentation')
         vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'LSP: Signature help' })
