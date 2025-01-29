@@ -21,6 +21,11 @@ return {
         { "kdheepak/lazygit.nvim" },
 
         { "nvim-tree/nvim-web-devicons",            enabled = vim.g.have_nerd_font },
+
+        {
+            "nvim-telescope/telescope-live-grep-args.nvim",  -- ripgrep with arguments
+            version = "^1.0.0",
+        },
     },
     config = function()
         require("techno/telescope")
