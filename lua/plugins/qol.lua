@@ -113,4 +113,9 @@ return {
             remap("i", "<bs>", "v:lua.MUtils.BS()", { expr = true, noremap = true })
         end,
     },
+
+    {
+        "OXY2DEV/helpview.nvim",
+        lazy = false
+    },
 }

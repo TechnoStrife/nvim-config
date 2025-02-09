@@ -51,5 +51,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
             end, '[T]oogle inlay hints')
         end
+        vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
     end,
 })
