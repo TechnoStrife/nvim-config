@@ -44,3 +44,5 @@ autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 -- folding opts
 --vim.wo.foldmethod = 'expr'
 --vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+
+vim.o.diffopt = 'internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram'
