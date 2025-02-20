@@ -8,8 +8,8 @@ vim.keymap.set('n', 'a', function()
     return (string.match(vim.api.nvim_get_current_line(), '%g') == nil and vim.v.count == 0) and 'cc' or 'a'
 end, { expr = true, noremap = true })
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+-- vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+-- vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
