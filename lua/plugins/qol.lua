@@ -1,11 +1,10 @@
 return {
-    'tpope/vim-sleuth', -- auto config tabs
+    -- 'tpope/vim-sleuth', -- auto config tabs
 
     {
         'ggandor/leap.nvim', -- jump by 2 chars
         config = function()
-            vim.keymap.set({ 'n', 'x', 'o' }, 'zj', '<Plug>(leap-forward)')
-            vim.keymap.set({ 'n', 'x', 'o' }, 'zk', '<Plug>(leap-backward)')
+            require('leap').create_default_mappings()
         end,
         opts = {},
     },
@@ -53,16 +52,16 @@ return {
             -- add any options here
         },
     },
-    -- {
-    --     "kylechui/nvim-surround",
-    --     version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    --     event = "VeryLazy",
-    --     config = function()
-    --         require("nvim-surround").setup({
-    --             -- Configuration here, or leave empty to use defaults
-    --         })
-    --     end,
-    -- },
+    {
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end,
+    },
     -- {
     --     "windwp/nvim-autopairs",
     --     event = "InsertEnter",
