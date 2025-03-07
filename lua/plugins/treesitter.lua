@@ -73,6 +73,22 @@ return {
                     clear_on_cursor_move = true,
                 },
             },
+            incremental_selection = {
+                --[[
+                -- Alternatives:
+                --  - mfussenegger/nvim-treehopper (adds labels)
+                --  - https://github.com/RRethy/nvim-treesitter-textsubjects
+                --      for simplicity. You can map it to <CR> and it works in visual mode,
+                --      so you just click v<ENTER> and it smartly selects incrementally.
+                --]]
+                enable = true,
+                keymaps = {
+                    init_selection = '<CR>',
+                    scope_incremental = '<CR>',
+                    node_incremental = '<TAB>',
+                    node_decremental = '<S-TAB>',
+                },
+            },
         },
         config = function(_, opts)
             -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
