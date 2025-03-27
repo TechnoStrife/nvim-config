@@ -1,11 +1,11 @@
 -- vim.g.mapleader = " "
 
 -- properly indent when `i` on empty line
-vim.keymap.set('n', 'i', function()
-    return (string.match(vim.api.nvim_get_current_line(), '%g') == nil and vim.v.count == 0) and 'cc' or 'i'
+vim.keymap.set("n", "i", function()
+	return (string.match(vim.api.nvim_get_current_line(), "%g") == nil and vim.v.count == 0) and "cc" or "i"
 end, { expr = true, noremap = true })
-vim.keymap.set('n', 'a', function()
-    return (string.match(vim.api.nvim_get_current_line(), '%g') == nil and vim.v.count == 0) and 'cc' or 'a'
+vim.keymap.set("n", "a", function()
+	return (string.match(vim.api.nvim_get_current_line(), "%g") == nil and vim.v.count == 0) and "cc" or "a"
 end, { expr = true, noremap = true })
 
 -- vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -40,7 +40,14 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { noremap = true, silent = true, desc = "[U]ndotree toggle" })
 
 vim.api.nvim_create_user_command("Cppath", function()
-    local path = vim.fn.expand("%:p")
-    vim.fn.setreg("+", path)
-    vim.notify('Copied "' .. path .. '" to the clipboard!')
+	local path = vim.fn.expand("%:p")
+	vim.fn.setreg("+", path)
+	vim.notify('Copied "' .. path .. '" to the clipboard!')
 end, {})
+
+vim.keymap.set(
+	"n",
+	"<leader>yf",
+	":call setreg('+', expand('%:.') .. ':' .. line('.'))<CR>",
+	{ noremap = true, silent = true, desc = "[Y]ank [f]ile name to +" }
+)
