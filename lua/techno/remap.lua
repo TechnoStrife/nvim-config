@@ -23,6 +23,10 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
+-- remap P to swap the " register and p to just replace selection with paste
+vim.keymap.set("v", "p", "P", { noremap = true })
+vim.keymap.set("v", "P", "p", { noremap = true })
+
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
