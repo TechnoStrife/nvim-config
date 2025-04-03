@@ -23,7 +23,7 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
-vim.opt.updatetime = 50
+vim.opt.updatetime = 100
 vim.opt.showmode = false -- hide status line
 vim.opt.colorcolumn = "80"
 
@@ -45,4 +45,4 @@ autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 --vim.wo.foldmethod = 'expr'
 --vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 
-vim.o.diffopt = 'internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram'
+vim.o.diffopt = "internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram"

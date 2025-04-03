@@ -55,3 +55,25 @@ vim.keymap.set(
 	":call setreg('+', expand('%:.') .. ':' .. line('.'))<CR>",
 	{ noremap = true, silent = true, desc = "[Y]ank [f]ile name to +" }
 )
+
+local russian = false
+function warn_russian()
+	vim.api.nvim_echo({ { "russian!", "WarningMsg" } }, false, {})
+	io.write("\7")
+	russian = true
+end
+vim.api.nvim_create_autocmd("CursorHold", {
+	pattern = "*",
+	callback = function()
+		if russian then
+			vim.api.nvim_echo({ { "" } }, false, {})
+			russian = false
+		end
+	end,
+})
+local russian_chars =
+	"ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯфисвуапршолдьтщзйкыегмцчня"
+for i = 1, #russian_chars do
+	local c = russian_chars:sub(i, i)
+	vim.keymap.set("n", c, warn_russian)
+end
