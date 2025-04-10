@@ -23,7 +23,10 @@ require("telescope").setup({
         ["ui-select"] = {
             require("telescope.themes").get_dropdown(),
         },
-    },
+        file_browser = {
+            hidden = { file_browser = true, folder_browser = true },
+        },
+  },
 })
 
 pcall(require("telescope").load_extension, "fzf")

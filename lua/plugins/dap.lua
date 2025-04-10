@@ -2,6 +2,7 @@ return {
     'mfussenegger/nvim-dap',
     dependencies = {
         'leoluz/nvim-dap-go',
+        'mfussenegger/nvim-dap-python',
         'rcarriga/nvim-dap-ui',
         'theHamsta/nvim-dap-virtual-text',
         'nvim-neotest/nvim-nio',
@@ -14,6 +15,7 @@ return {
 
         require('dapui').setup()
         require('dap-go').setup()
+        require("dap-python").setup("python3")
         require('dap.ext.vscode').load_launchjs(nil, {})
 
         vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, { desc = topic .. "toggle [B]reakpoint" })
