@@ -117,4 +117,6 @@ return {
         "OXY2DEV/helpview.nvim",
         lazy = false
     },
+
+    { 'vuciv/golf' }, -- challenges
 }
