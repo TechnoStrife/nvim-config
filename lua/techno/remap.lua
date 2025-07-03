@@ -2,10 +2,10 @@
 
 -- properly indent when `i` on empty line
 vim.keymap.set("n", "i", function()
-	return (string.match(vim.api.nvim_get_current_line(), "%g") == nil and vim.v.count == 0) and "cc" or "i"
+	return (string.match(vim.api.nvim_get_current_line(), "^%s*$") ~= nil and vim.v.count == 0) and [["_cc]] or "i"
 end, { expr = true, noremap = true })
 vim.keymap.set("n", "a", function()
-	return (string.match(vim.api.nvim_get_current_line(), "%g") == nil and vim.v.count == 0) and "cc" or "a"
+	return (string.match(vim.api.nvim_get_current_line(), "^%s*$") ~= nil and vim.v.count == 0) and [["_cc]] or "a"
 end, { expr = true, noremap = true })
 
 -- vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

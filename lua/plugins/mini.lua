@@ -6,7 +6,7 @@ return {
 
     -- Add/delete/replace surroundings (brackets, quotes, etc.)
     -- require('mini.surround').setup()
-    require('mini.pairs').setup()
+    -- require('mini.pairs').setup()
     require('mini.splitjoin').setup()
     require('mini.move').setup()
   end,
